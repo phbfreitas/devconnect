@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://phbfreitas:peixe001@devconnector-xfktx.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://phbfreitas:peixe001@devconnector-xfktx.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
 }
