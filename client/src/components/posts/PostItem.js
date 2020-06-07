@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { updateLike } from '../../actions/post';
 import { deletePost } from '../../actions/post';
 
-const PostItem = ({ updateLike, deletePost, auth, post: {
+const PostItem = ({ updateLike, deletePost, showActions, auth, post: {
     _id,
     user,
     name,
@@ -21,7 +21,7 @@ const PostItem = ({ updateLike, deletePost, auth, post: {
         <Fragment>
             <div key={_id} className="post bg-white p-1 my-1">
                 <div>
-                    <Link to="/post">
+                    <Link to={`profile/${user}`}>
                         <img
                             className="round-img"
                             src={avatar}
@@ -33,36 +33,44 @@ const PostItem = ({ updateLike, deletePost, auth, post: {
                 <div>
                     <p className="my-1">{text}</p>
                     <p className="post-date">Posted on <Moment format='YYYY/MM/DD'>{date}</Moment></p>
-                    <button type="button" className="btn btn-light" onClick={e => updateLike(_id)}>
-                        <i className="fas fa-thumbs-up"></i>
-                        {!auth.loading && (
-                            <Fragment>
-                                <span>{likes.length > 0 && (' ' + likes.length)}</span>
-                            </Fragment>
-                        )}
-                    </button>
-                    {comments !== null && comments.length > 0 && (
-                        <Link to="/post" className="btn btn-primary">
-                            Discussion <span className='comment-count'>{comments.length}</span>
-                        </Link>
-                    )}
-                    {!auth.loading && auth.user._id === user && (
-                        <button type="button" className="btn btn-danger" onClick={e => deletePost(_id)}>
-                            <i className="fas fa-times"></i>
+
+                    {showActions && <Fragment>
+                        <button type="button" className="btn btn-light" onClick={e => updateLike(_id)}>
+                            <i className="fas fa-thumbs-up"></i>
+                            {!auth.loading && (
+                                <Fragment>
+                                    <span>{likes.length > 0 && (' ' + likes.length)}</span>
+                                </Fragment>
+                            )}
                         </button>
-                    )}
+                        <Link to={`/posts/${_id}`} className="btn btn-primary">
+                            Discussion {' '}
+                            {comments !== null && comments.length > 0 && (
+                                <span className='comment-count'>{comments.length}</span>
+                            )}
+                        </Link>
+                        {!auth.loading && auth.user._id === user && (
+                            <button type="button" className="btn btn-danger" onClick={e => deletePost(_id)}>
+                                <i className="fas fa-times"></i>
+                            </button>
+                        )}
+                    </Fragment>}
                 </div>
             </div>
         </Fragment >
     )
 }
 
+PostItem.defaultProps = {
+    showActions: true
+};
+
 PostItem.propTypes = {
     post: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     updateLike: PropTypes.func.isRequired,
     deletePost: PropTypes.func.isRequired
-}
+};
 
 const mapStateToProps = state => ({
     auth: state.auth

@@ -4,6 +4,7 @@ import Spinner from '../layout/Spinner';
 import { getPosts } from '../../actions/post';
 import PostItem from './PostItem';
 import { connect } from 'react-redux';
+import AddPost from '../profile-forms/AddPost';
 
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
@@ -14,6 +15,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     return loading ?
         <Spinner /> : (
             < Fragment >
+                <AddPost />
                 <h1 class="large text-primary">Posts</h1>
                 <p class="lead"><i class="fas fa-user"></i> Welcome to the community!</p>
                 <div class="posts">
@@ -36,4 +38,4 @@ const mapStateToProps = state => ({
     post: state.post
 });
 
-export default connect(mapStateToProps, { getPosts })(Posts)
+export default connect(mapStateToProps, { getPosts })(Posts);
