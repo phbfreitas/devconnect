@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://phbfreitas:peixe001@devconnector-xfktx.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "881d919f4e09d8637790",
+  "githubSecret": "ae3014724a7723444657ddf2cb27944e826d711a"
+}
