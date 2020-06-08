@@ -27,31 +27,35 @@ const ProfileTop = ({ profile: {
                             <i className="fas fa-globe fa-2x"></i>
                         </a>
                     </Fragment>)}
-                    {social.twitter && (<Fragment>
-                        <a href={social.twitter} target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-twitter fa-2x"></i>
-                        </a>
-                    </Fragment>)}
-                    {social.facebook && (<Fragment>
-                        <a href={social.facebook} target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-facebook fa-2x"></i>
-                        </a>
-                    </Fragment>)}
-                    {social.linkedin && (<Fragment>
-                        <a href={social.linkedin} target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-linkedin fa-2x"></i>
-                        </a>
-                    </Fragment>)}
-                    {social.youtube && (<Fragment>
-                        <a href={social.youtube} target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-youtube fa-2x"></i>
-                        </a>
-                    </Fragment>)}
-                    {social.instagram && (<Fragment>
-                        <a href={social.instagram} target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-instagram fa-2x"></i>
-                        </a>
-                    </Fragment>)}
+                    {social && (
+                        <Fragment>
+                            {social.twitter && (<Fragment>
+                                <a href={social.twitter} target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-twitter fa-2x"></i>
+                                </a>
+                            </Fragment>)}
+                            {social.facebook && (<Fragment>
+                                <a href={social.facebook} target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-facebook fa-2x"></i>
+                                </a>
+                            </Fragment>)}
+                            {social.linkedin && (<Fragment>
+                                <a href={social.linkedin} target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-linkedin fa-2x"></i>
+                                </a>
+                            </Fragment>)}
+                            {social.youtube && (<Fragment>
+                                <a href={social.youtube} target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-youtube fa-2x"></i>
+                                </a>
+                            </Fragment>)}
+                            {social.instagram && (<Fragment>
+                                <a href={social.instagram} target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-instagram fa-2x"></i>
+                                </a>
+                            </Fragment>)}
+                        </Fragment>
+                    )}
                 </div>
             </div>
         </Fragment>
