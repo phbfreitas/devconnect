@@ -31,7 +31,7 @@ const AddPost = ({ createPost }) => {
                         apiKey="aqzfuanieohcgrxpvrnllu8rauveikq88fz9oh53426k5d0c"
                         init={{
                             height: 500,
-                            menubar: false,
+                            menubar: true,
                             plugins: [
                                 'advlist autolink lists link image charmap print preview anchor',
                                 'searchreplace visualblocks code fullscreen',
