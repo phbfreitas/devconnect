@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { updateLike } from '../../actions/post';
 import { deletePost } from '../../actions/post';
+import { Editor } from '@tinymce/tinymce-react';
 
 const PostItem = ({ updateLike, deletePost, showActions, auth, post: {
     _id,
@@ -31,7 +32,27 @@ const PostItem = ({ updateLike, deletePost, showActions, auth, post: {
                     </Link>
                 </div>
                 <div>
-                    <p className="my-1">{text}</p>
+
+
+
+
+
+                    <p className="my-1">
+                        <Editor
+                            apiKey="aqzfuanieohcgrxpvrnllu8rauveikq88fz9oh53426k5d0c"
+                            init={{
+                                height: 300,
+                                menubar: false,
+                                toolbar: ''
+                            }}
+                            initialValue={text}
+                            disabled={true}
+                        />
+                    </p>
+
+
+
+
                     <p className="post-date">Posted on <Moment format='YYYY/MM/DD'>{date}</Moment></p>
 
                     {showActions && <Fragment>
